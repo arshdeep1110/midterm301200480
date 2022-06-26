@@ -1,0 +1,65 @@
+<% include ../partials/header.ejs %>
+
+    <!--//Arshdeep singh
+    //301200480
+    //mid-termMAIN CONTENT -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+          <h3>Favourite movies List </h3>
+          <!-- ------------------------ -->
+          <!-- FIX THE ADD BUTTON BELOW -->
+          <!-- ------------------------ -->
+          <a href="/movies/add" class="btn btn-primary"><i class="fa fa-plus"></i> Add a movie</a>
+          <br>
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th class="text-center">Description</th>
+                  <th class="text-center">Released</th>
+                  <th class="text-center">Director</th>
+                  <th class="text-center">Genre</th>
+                  <th class="text-center"></th>
+                  <th class="text-center"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Template Row -->
+                <% for (let count = 0; count < movies.length; count++) { %>
+                <tr>
+                  <td><%= movies[count].Title %></td>
+                  <td class="text-center">$<%= movies[count].Description %></td>
+                  <td class="text-center">$<%= movies[count].Released %></td>
+                  <td class="text-center"><%= movies[count].Director %></td>
+                  <td class="text-center"><%= movies[count].Genre %></td>
+
+                  <td class="text-center">
+                    <!-- ------------------------ -->
+                    <!-- ADD the EDIT BUTTON HERE -->
+                    <!-- ------------------------ -->
+                    <a href="/movies/<%= movies[count]._id %>" class="btn btn-success text-lightblue">Edit Movie</a>
+                  </td>
+
+                  <td class="text-center">
+                    <!-- ------------------------ -->
+                    <!-- ADD the DELETE BUTTON HERE -->
+                    <!-- ------------------------ -->
+                    <a href="/movies/delete/<%= movie[count]._id %>" class="btn btn-danger text-lightblue">Delete Movie</a>
+                  </td>
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+           <div class="col-md-offset-1 col-md-10 text-center">
+            <ul class="pagination pagination-lg pager" id="myPager"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<% include ../partials/footer.ejs %>
+
+
